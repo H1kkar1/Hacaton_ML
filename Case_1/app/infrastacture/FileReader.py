@@ -12,6 +12,8 @@ class FileReader(IFile):
 
     def Read(self) -> str:
         match self.type:
-            case "txt":
+            case "rtf" | "txt":
                response = TxtReader.Read(self, path=self.file_path)
                return response
+            case _:
+                return "Такой тип файлов не поддерживается"
