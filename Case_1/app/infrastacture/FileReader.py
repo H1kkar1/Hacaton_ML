@@ -1,5 +1,6 @@
 from app.infrastacture.FilesReaderTypes.IFIle import IFile
 from app.infrastacture.FilesReaderTypes.TxtRaeder import TxtReader
+from app.infrastacture.FilesReaderTypes.PDFRaeder import PDFReader
 
 
 class FileReader(IFile):
@@ -15,3 +16,6 @@ class FileReader(IFile):
             case "txt":
                response = TxtReader.Read(self, path=self.file_path)
                return response
+            case "pdf":
+                response = PDFReader.Read(self, path=self.file_path)
+                return response
