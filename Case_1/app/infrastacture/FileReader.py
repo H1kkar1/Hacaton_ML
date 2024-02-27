@@ -1,11 +1,17 @@
-from FilesReaderTypes.IFIle import IFile
+from app.infrastacture.FilesReaderTypes.IFIle import IFile
+from app.infrastacture.FilesReaderTypes.TxtRaeder import TxtReader
+
 
 class FileReader(IFile):
     file_path: str
-    result_text: str
+    type: str
 
     def __init__(self, path: str):
         self.file_path = path
+        self.type = path.split('.')[-1]
 
-    def Read(self):
-        IFile.Read()
+    def Read(self) -> str:
+        match self.type:
+            case "txt":
+               response = TxtReader.Read(self, path=self.file_path)
+               return response
