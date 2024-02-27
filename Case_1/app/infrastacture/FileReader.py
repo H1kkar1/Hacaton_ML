@@ -7,5 +7,6 @@ class FileReader(IFile):
     def __init__(self, path: str):
         self.file_path = path
 
+
     def Read(self):
         IFile.Read()
