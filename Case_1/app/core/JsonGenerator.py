@@ -17,4 +17,11 @@ class JsonGenerator:
         self.experience = language
 
     def Generate_json(self):
-        return {self.person, self.education, self.experience, self.language}
+        return {
+            "resume": {
+                "person": self.person.data(),
+                "education": self.education.data(),
+                "experience": self.experience.data(),
+                "language": self.language.data()
+            }
+        }
