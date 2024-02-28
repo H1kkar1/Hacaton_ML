@@ -10,11 +10,11 @@ class JsonGenerator:
     experience: Experience
     language: Language
 
-    def __init__(self, per, ed, ex, lan):
-        self.person = per
-        self.education = ed
-        self.language = lan
-        self.experience = ex
+    def __init__(self, person, education, experience, language):
+        self.person = person
+        self.education = education
+        self.language = experience
+        self.experience = language
 
     def Generate_json(self):
         return {self.person, self.education, self.experience, self.language}
