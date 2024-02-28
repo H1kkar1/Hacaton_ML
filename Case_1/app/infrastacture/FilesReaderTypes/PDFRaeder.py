@@ -23,11 +23,8 @@ pytesseract.pytesseract.tesseract_cmd = TESSERACT_PATH
 class PDFReader(IFile):
     def Read(self, path: str) -> str:
         try:
-            # reader = PdfReader("Vadim Brezovsky.pdf")
-            # number_of_pages = len(reader.pages)
-            # page = reader.pages[0]
-            # text = page.extract_text()
-            # return text
+            # Find the PDF path
+            pdf_path = path
             def text_extraction(element):
                 # Extracting the text from the in line text element
                 line_text = element.get_text()
@@ -128,9 +125,6 @@ class PDFReader(IFile):
                 # Extract the text from the image
                 text = pytesseract.image_to_string(img)
                 return text
-
-            # Find the PDF path
-            pdf_path = 'Safronov Leonid.pdf'
 
             # Create a pdf file object
             pdfFileObj = open(pdf_path, 'rb')
