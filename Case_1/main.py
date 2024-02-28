@@ -1,7 +1,7 @@
 from app.infrastacture.FileReader import FileReader
 
 def main():
-    text = FileReader("Document.docx")
+    text = FileReader("Alex Konev.docx")
     print(text.Read())
 
 if __name__ == '__main__':

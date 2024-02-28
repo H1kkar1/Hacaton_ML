@@ -1,5 +1,8 @@
-from app.infrastacture.FilesReaderTypes.IFIle import IFile
 import docx
+import re
+from app.infrastacture.FilesReaderTypes.IFIle import IFile
+from app.infrastacture.NumberPhone import NumPhone
+
 
 class DocxReader(IFile):
 
@@ -8,4 +11,9 @@ class DocxReader(IFile):
         text = []
         for paragraph in doc.paragraphs:
             text.append(paragraph.text)
-        return '\n'.join(text)
+            index = paragraph.text.find('+')
+            if (index != -1):
+                phoneRead = NumPhone()
+                print("Ваш номер телефона: "+phoneRead.SearchPhone(paragraph.text))
+        return ""
+
