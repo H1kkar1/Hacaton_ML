@@ -1,9 +1,14 @@
+
 import docx
 import re
 
 from app.infrastacture.Emails import Emails
 from app.infrastacture.FilesReaderTypes.IFIle import IFile
 from app.infrastacture.NumberPhone import NumPhone
+
+from app.infrastacture.FilesReaderTypes.IFIle import IFile
+import docx
+
 
 
 class DocxReader(IFile):
@@ -23,4 +28,5 @@ class DocxReader(IFile):
                     if (adress.find('@') != -1):
                         print("Ваша почта: "+emails.SearchEmail(adress))
         return '\n'.join(text)
+
 
