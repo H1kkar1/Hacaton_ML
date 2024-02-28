@@ -20,7 +20,6 @@ TESSERACT_PATH = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
 # Include tesseract executable
 pytesseract.pytesseract.tesseract_cmd = TESSERACT_PATH
 
-
 class PDFReader(IFile):
     def Read(self, path: str) -> str:
         try:
@@ -237,6 +236,13 @@ class PDFReader(IFile):
             # Display the content of the page
             result = ''.join(text_per_page['Page_0'][4])
             return result
+
+
+            reader = PdfReader(path)
+            number_of_pages = len(reader.pages)
+            page = reader.pages[0]
+            text = page.extract_text()
+            return text
 
         except TypeError:
             raise TypeError
