@@ -1,0 +1,9 @@
+class Experience:
+    starts: str
+    ends: str
+    employer: str
+    city: str
+    url: str
+    position: str
+    description: str
+    order: int
