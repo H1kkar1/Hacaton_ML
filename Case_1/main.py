@@ -5,7 +5,7 @@ def main():
     # text = FileReader("test.txt")
     # print(text.Read())
 
-    text = FileReader("Vadim Brezovsky.pdf")
+    text = FileReader("Safronov Leonid.pdf")
     print(text.Read())
 
     # text = FileReader("test.xlsx")

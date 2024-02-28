@@ -1,19 +1,25 @@
 from app.infrastacture.FilesReaderTypes.IFIle import IFile
 from pypdf import PdfReader
-# Для считывания PDF
+
 import PyPDF2
-# Для анализа структуры PDF и извлечения текста
+# To analyze the PDF layout and extract text
 from pdfminer.high_level import extract_pages, extract_text
 from pdfminer.layout import LTTextContainer, LTChar, LTRect, LTFigure
-# Для извлечения текста из таблиц в PDF
+# To extract text from tables in PDF
 import pdfplumber
-# Для извлечения изображений из PDF
+# To extract the images from the PDFs
 from PIL import Image
 from pdf2image import convert_from_path
-# Для выполнения OCR, чтобы извлекать тексты из изображений
+# To perform OCR to extract text from images
 import pytesseract
-# Для удаления дополнительно созданных файлов
+# To remove the additional created files
 import os
+
+# Path Of The Tesseract OCR engine
+TESSERACT_PATH = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
+# Include tesseract executable
+pytesseract.pytesseract.tesseract_cmd = TESSERACT_PATH
+
 
 class PDFReader(IFile):
     def Read(self, path: str) -> str:
@@ -23,8 +29,6 @@ class PDFReader(IFile):
             # page = reader.pages[0]
             # text = page.extract_text()
             # return text
-
-            # Create function to extract text
             def text_extraction(element):
                 # Extracting the text from the in line text element
                 line_text = element.get_text()
@@ -46,8 +50,6 @@ class PDFReader(IFile):
 
                 # Return a tuple with the text in each line along with its format
                 return (line_text, format_per_line)
-
-            # Extracting tables from the page
 
             def extract_table(pdf_path, page_num, table_num):
                 # Open the pdf file
@@ -112,16 +114,14 @@ class PDFReader(IFile):
                 # Save the cropped PDF to a new file
                 with open('cropped_image.pdf', 'wb') as cropped_pdf_file:
                     cropped_pdf_writer.write(cropped_pdf_file)
-                    # Path to the Tesseract OCR executable (change if necessary)
-                    pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
-
 
             # Create a function to convert the PDF to images
             def convert_to_images(input_file, ):
-                images = convert_from_path(input_file)
+                images = convert_from_path(input_file, 500, poppler_path=r'C:\Program Files\poppler-24.02.0\Library\bin')
                 image = images[0]
                 output_file = 'PDF_image.png'
                 image.save(output_file, 'PNG')
+
             # Create a function to read text from images
             def image_to_text(image_path):
                 # Read the image
@@ -131,13 +131,12 @@ class PDFReader(IFile):
                 return text
 
             # Find the PDF path
-            pdf_path = 'Vadim Brezovsky.pdf'
+            pdf_path = 'Safronov Leonid.pdf'
 
             # Create a pdf file object
             pdfFileObj = open(pdf_path, 'rb')
             # Create a pdf reader object
             pdfReaded = PyPDF2.PdfReader(pdfFileObj)
-
             # Create the dictionary to extract text from each image
             text_per_page = {}
             # Create a boolean variable for image detection
@@ -229,14 +228,15 @@ class PDFReader(IFile):
                 dctkey = 'Page_' + str(pagenum)
                 # Add the list of list as value of the page key
                 text_per_page[dctkey] = [page_text, line_format, text_from_images, text_from_tables, page_content]
-                # Close the pdf file object
-                pdfFileObj.close()
-                # Delete the additional files created if image is detected
-                if image_flag:
-                    os.remove('cropped_image.pdf')
-                    os.remove('PDF_image.png')
-                # Display the content of the page
-                result = ''.join(text_per_page['Page_0'][4])
+            # Close the pdf file object
+            pdfFileObj.close()
+            # Delete the additional files created if image is detected
+            if image_flag:
+                os.remove('cropped_image.pdf')
+                os.remove('PDF_image.png')
+            # Display the content of the page
+            result = ''.join(text_per_page['Page_0'][4])
             return result
+
         except TypeError:
             raise TypeError
