@@ -1,3 +1,10 @@
+import json
+
+from app.core.JsonGenerator import JsonGenerator
+from app.core.Models.Person import Person
+from app.core.Models.Language import Language
+from app.core.Models.Experience import Experience
+from app.core.Models.Education import Education
 from app.infrastacture.FileReader import FileReader
 from app.core.Algorithms.PersinAlgorithm import PersonAlg
 from app.core.JsonGenerator import JsonGenerator
