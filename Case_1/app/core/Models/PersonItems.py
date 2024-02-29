@@ -1,11 +1,14 @@
 from dataclasses import dataclass
 from typing import Optional
 
+from app.core.Models import ContactItems
+
+
 @dataclass
 class Person:
     first_name: str
-    last_name: Optional[str]
-    middle_name: str
+    last_name: str
+    middle_name: Optional[str]
     birth_date: str
     birth_date_year_only: int
     country: str
@@ -18,6 +21,8 @@ class Person:
     gender: bool
     language: str
     resume_name: str
+    source_link: str
+    contacts: [ContactItems]
 
     def data(self):
         return {
@@ -35,5 +40,7 @@ class Person:
             "photo_path": self.photo_path,
             "gender": "Male" if self.gender else "Female",
             "language": self.language,
-            "resume name": self.resume_name
+            "resume name": self.resume_name,
+            "source_link": self.source_link,
+            "contacts": self.contacts,
         }

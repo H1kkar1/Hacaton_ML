@@ -6,4 +6,7 @@ class Language:
     language_level: str
 
     def data(self):
-        return {"language": self.language, "language_level": self.language_level}
+        return {
+            "language": self.language,
+            "language_level": self.language_level,
+        }

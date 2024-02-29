@@ -18,5 +18,5 @@ class Education:
             "specialty": self.specialty,
             "result": self.result,
             "education_type": self.education_type,
-            "education_level": self.education_level
+            "education_level": self.education_level,
         }

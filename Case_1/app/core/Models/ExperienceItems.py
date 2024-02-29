@@ -20,5 +20,5 @@ class Experience:
             'url': self.url,
             'position': self.position,
             'description': self.description,
-            'order': self.order
+            'order': self.order,
         }

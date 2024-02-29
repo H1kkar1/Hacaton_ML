@@ -1,14 +1,15 @@
-from app.core.Models.Education import Education
-from app.core.Models.Person import Person
-from app.core.Models.Language import Language
-from app.core.Models.Experience import Experience
+from app.core.Models.EducationItems import Education
+from app.core.Models.PersonItems import Person
+from app.core.Models.LanguageItems import Language
+from app.core.Models.ExperienceItems import Experience
+from typing import Optional
 
 
 class JsonGenerator:
-    person: Person
-    education: Education
-    experience: Experience
-    language: Language
+    person: Optional[Person]
+    education: Optional[Education]
+    experience: Optional[Experience]
+    language: Optional[Language]
 
     def __init__(self, person, education, experience, language):
         self.person = person
@@ -22,6 +23,6 @@ class JsonGenerator:
                 "person": self.person.data(),
                 "education": self.education.data(),
                 "experience": self.experience.data(),
-                "language": self.language.data()
+                "language": self.language.data(),
             }
         }
