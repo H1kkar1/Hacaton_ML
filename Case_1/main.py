@@ -1,5 +1,7 @@
 import json
 
+import re
+
 from app.core.JsonGenerator import JsonGenerator
 from app.core.Models.Person import Person
 from app.core.Models.Language import Language
@@ -7,16 +9,22 @@ from app.core.Models.Experience import Experience
 from app.core.Models.Education import Education
 from app.infrastacture.FileReader import FileReader
 
-
 def main():
-    # text = FileReader("test.txt")
+    text = FileReader("Vadim Brezovsky.pdf")
+
+    s = re.sub(r'\s+', " ", text.Read(), flags=re.M)
+    for s in re.split(r'(?<=[.]) ', s):
+        if "Languages" in s:
+            s = re.split('\n',s)
+            print(s)
+        elif "Education" in s:
+            s = s.split('\n')
+            print(s)
     # print(text.Read())
 
-    text = FileReader("Nikita Ivanov.pdf")
-    print(text.Read())
-
-    # text = FileReader("test.xlsx")
+    # text = FileReader("Nick Vinogradov.docx")
     # print(text.Read())
+
     person = Person(
         first_name="lsdvl",
         last_name="asd",
