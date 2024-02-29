@@ -9,6 +9,14 @@ from app.infrastacture.FileReader import FileReader
 
 
 def main():
+    # text = FileReader("test.txt")
+    # print(text.Read())
+
+    text = FileReader("Safronov Leonid.pdf")
+    print(text.Read())
+
+    # text = FileReader("test.xlsx")
+    # print(text.Read())
     person = Person(
         first_name="lsdvl",
         last_name="asd",

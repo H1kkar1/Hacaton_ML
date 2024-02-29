@@ -1,0 +1,46 @@
+{
+    "resume": {
+        "person": {
+            "first_name": "lsdvl",
+            "last_name": "asd",
+            "middle name": "assd",
+            "birth date": "12.12.1222",
+            "birth_date_year_only": 1222,
+            "country": "asd",
+            "city": "asd",
+            "about": "asd",
+            "key skills": [
+                "asd"
+            ],
+            "salary_expectations_amount": 120301.012,
+            "salary_expectations_currency": 91293.8128,
+            "photo_path": "http=//la,lc",
+            "gender": "Male",
+            "language": "asd",
+            "resume name": "asd"
+        },
+        "education": {
+            "year": "add",
+            "organization": "add",
+            "faculty": "add",
+            "specialty": "add",
+            "result": "add",
+            "education_type": "add",
+            "education_level": "add"
+        },
+        "experience": {
+            "language": "En",
+            "language_level": "loh"
+        },
+        "language": {
+            "starts": "asd",
+            "ends": "asd",
+            "employer": "asd",
+            "city": "asd",
+            "url": "asd",
+            "position": "asd",
+            "description": "asd",
+            "order": "asd"
+        }
+    }
+}
