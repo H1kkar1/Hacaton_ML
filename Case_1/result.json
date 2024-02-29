@@ -1,0 +1,60 @@
+{
+    "resume": {
+        "person": {
+            "first_name": "Nick",
+            "last_name": "Processing...",
+            "middle name": "Vinogradov",
+            "birth date": "Processing...",
+            "birth_date_year_only": "Processing...",
+            "country": "Russia",
+            "city": "",
+            "about": "Processing...",
+            "key skills": [
+                "Processing..."
+            ],
+            "salary_expectations_amount": 120301.012,
+            "salary_expectations_currency": 91293.8128,
+            "photo_path": "Processing...",
+            "gender": "Male",
+            "resume name": "Processing...",
+            "source_link": "Processing...",
+            "contacts": [
+                {
+                    "resume_contact_item_id": 1,
+                    "value": "4000958077 ",
+                    "comment": "Processing...",
+                    "contact_type": "Telephone"
+                },
+                {
+                    "resume_contact_item_id": 2,
+                    "value": "nickkk.vin@gmail.com ",
+                    "comment": "Processing...",
+                    "contact_type": "Email"
+                }
+            ]
+        },
+        "education": {
+            "year": "2006-2012",
+            "organization": "MAI",
+            "faculty": "Avionic systems",
+            "specialty": "Advanced Machine Learning",
+            "result": "Processing...",
+            "education_type": "Processing...",
+            "education_level": "Processing..."
+        },
+        "experience": {
+            "starts": "asd",
+            "ends": "asd",
+            "employer": "asd",
+            "city": "",
+            "url": "asd",
+            "position": "asd",
+            "description": "asd",
+            "order": "asd"
+        },
+        "language": {
+            "language": "Processing",
+            "language_level": "Processing..."
+        }
+    }
+}

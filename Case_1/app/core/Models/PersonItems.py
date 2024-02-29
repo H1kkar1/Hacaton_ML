@@ -19,7 +19,6 @@ class Person:
     salary_expectations_currency: str
     photo_path: Optional[str]
     gender: bool
-    language: str
     resume_name: str
     source_link: str
     contacts: [ContactItems]
@@ -39,8 +38,7 @@ class Person:
             "salary_expectations_currency": self.salary_expectations_currency,
             "photo_path": self.photo_path,
             "gender": "Male" if self.gender else "Female",
-            "language": self.language,
             "resume name": self.resume_name,
             "source_link": self.source_link,
-            "contacts": self.contacts,
+            "contacts": [i.data() for i in self.contacts],
         }

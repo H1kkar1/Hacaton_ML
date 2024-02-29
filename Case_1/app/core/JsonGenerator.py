@@ -14,8 +14,8 @@ class JsonGenerator:
     def __init__(self, person, education, experience, language):
         self.person = person
         self.education = education
-        self.language = experience
-        self.experience = language
+        self.language = language
+        self.experience = experience
 
     def Generate_json(self):
         return {
