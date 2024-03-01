@@ -8,7 +8,8 @@
 - JSON генератор
 - архетиктура для расширения
 
-
+Ссылка на скринкаст работы программы:
+https://drive.google.com/file/d/1D0flAq_7YOdPGvWY5ARRePNjOYKpvvU9/view?usp=drivesdk
 
 
 Как пользоваться:
